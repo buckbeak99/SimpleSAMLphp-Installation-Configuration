@@ -1,11 +1,11 @@
 # SimpleSAMlphp as a Service Provider(SP)
 This guide will describe how to configure SimpleSAMLphp as a service provider (SP). You should previously have installed SimpleSAMLphp as described in the [SimpleSAMLphp installation instructions](https://github.com/buckbeak99/SimpleSAMLphp/blob/553616106079a137894270d614abc2ff110dd595/README.md)  
-- [Prerequisite](https://github.com/buckbeak99/SimpleSAMLphp/Readme.md#prerequisites)
+- [Prerequisite](https://github.com/buckbeak99/SimpleSAMLphp/blob/553616106079a137894270d614abc2ff110dd595/README.md)
 - [Securing Apache Web Server](https://github.com/buckbeak99/Securing-Apache-Server)
-- [Download and Install SimpleSAMLphp](https://github.com/buckbeak99/SimpleSAMLphp/blob/main/Readme.md#download-and-install-simplesamlphp)
-- [Configuring Apache to serve SimpleSAMLphp](https://github.com/buckbeak99/SimpleSAMLphp/blob/main/Readme.md#configuring-apache-to-serve-simplesamlphp)
-- [Configuring SimpleSAMLphp](https://github.com/buckbeak99/SimpleSAMLphp/blob/main/Readme.md#configuring-simplesamlphp)
-- [Enanbling and Disabling Modules](https://github.com/buckbeak99/SimpleSAMLphp/blob/main/Readme.md#enabling-and-disabling-modules)
+- [Download and Install SimpleSAMLphp](https://github.com/buckbeak99/SimpleSAMLphp/blob/553616106079a137894270d614abc2ff110dd595/README.md))
+- [Configuring Apache to serve SimpleSAMLphp](https://github.com/buckbeak99/SimpleSAMLphp/blob/553616106079a137894270d614abc2ff110dd595/README.md)
+- [Configuring SimpleSAMLphp](https://github.com/buckbeak99/SimpleSAMLphp/blob/553616106079a137894270d614abc2ff110dd595/README.md)
+- [Enanbling and Disabling Modules](https://github.com/buckbeak99/SimpleSAMLphp/blob/553616106079a137894270d614abc2ff110dd595/README.md)
 ## Configuring the SP
  The SP is configured by an entry in config/authsources.php .
 
