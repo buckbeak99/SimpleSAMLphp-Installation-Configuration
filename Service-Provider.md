@@ -130,7 +130,48 @@ Go to your **Service Provider's** fedaration page. You will get your sp metadata
 ```bash
 sudo nano /var/www/idp.example.com/simplesamlphp/metadata/saml20-sp-remote.php
 ```
-paste the metadata.
+paste the metadata. here is an example. **Don't copy this**.
+```bash
+$metadata['https://your_sp_domain/simplesaml/module.php/saml/sp/metadata.php/your_sp_domain'] = [
+    'SingleLogoutService' => [
+        [
+            'Binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',
+            'Location' => 'https://your_sp_domain/simplesaml/module.php/saml/sp/saml2-logout.php/your_sp_domain',
+        ],
+    ],
+    'AssertionConsumerService' => [
+        [
+            'index' => 0,
+            'Binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST',
+            'Location' => 'https://your_sp_domain/simplesaml/module.php/saml/sp/saml2-acs.php/your_sp_domain',
+        ],
+        [
+            'index' => 1,
+            'Binding' => 'urn:oasis:names:tc:SAML:1.0:profiles:browser-post',
+            'Location' => 'https://your_sp_domain/simplesaml/module.php/saml/sp/saml1-acs.php/your_sp_domain',
+        ],
+        [
+            'index' => 2,
+            'Binding' => 'urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Artifact',
+            'Location' => 'https://your_sp_domain/simplesaml/module.php/saml/sp/saml2-acs.php/your_sp_domain',
+        ],
+        [
+            'index' => 3,
+            'Binding' => 'urn:oasis:names:tc:SAML:1.0:profiles:artifact-01',
+            'Location' => 'https://your_sp_domain/simplesaml/module.php/saml/sp/saml1-acs.php/your_sp_domain/artifact',
+        ],
+    ],
+    'contacts' => [
+        [
+            'emailAddress' => 'your email',
+            'contactType' => 'technical',
+            'givenName' => 'your name',
+        ],
+    ],
+    'certData' => 'MIIFCzCCA3OgAwIBAgIUE5hXCloUaNCNjkGg7x0lnMVbRAUwDQYJKoZIhvcNAQELBQAwgZQxCzAJBgNVBAYTAkJEMQ4wDAYDVQQIDAVEaGFrYTEOMAwGA1UEBwwFRGhha2ExGTAXBgNVBAoMEERoYWthIFVuaXZlcnNpdHkxDDAKBgNVBAsMA0NTRTETMBEGA1UEAwwKc3AxLmR1LmNvbTEnMCUGCSqGSIb3DQEJARYYbWVzYmFoLmNzZXN1c3RAZ21haWwuY29tMB4XDTIyMDUzMDE3MzYyMloXDTMyMDUyOTE3MzYyMlowgZQxCzAJBgNVBAYTAkJEMQ4wDAYDVQQIDAVEaGFrYTEOMAwGA1UEBwwFRGhha2ExGTAXBgNVBAoMEERoYWthIFVuaXZlcnNpdHkxDDAKBgNVBAsMA0NTRTETMBEGA1UEAwwKc3AxLmR1LmNvbTEnMCUGCSqGSIb3DQEJARYYbWVzYmFoLmNzZXN1c3RAZ21haWwuY29tMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAvDe2hetthZPm6VuII1W7wtymmBnfhNR9Kg0VHMG8i+cYx6e49im4EcHfbmwQh3jf21dFnt06Qg2qfZaxvoGVgSzOXC6wOLMgLdr1QBzSrri3JZmW/u8KgOqT6lYFFHzGapKPlDqOwijvQBYzGKIzvpzhVvGC54PM6ri2HQCuc32WiiDXBBr9eXLmTMBagG8VfFX5Aw2+8pVks/VSHZ+F5QrSV9/ov7iINIXRc4DqDk08eOjKitgCwkODmz+16HtmtQgnosTdFOTupBXrf2AH5j8QmNAUleDmfncAmwhcugWPP64xm/IkIxeknmYRDdbpBaBoR4TYRO/UVCfNDBrUmoypdr/Wh5WLk/UIIS4calXnFjv/1l91yTsNx4KuYPuFcRWcBbPRJeUgcGqerFwItOWXXAY7on07rdbq3Zd76qhw2WCeo0xDCEC1rBCWtiNAFxGEJUF5FENf14tOGfznMedKB3gMY+GxJRcF5lt3TaeepnwsMb9rLg3wHAZAbqMXAgMBAAGjUzBRMB0GA1UdDgQWBBTeCF6r/I/Sym64VUmx4YjgKXiiYTAfBgNVHSMEGDAWgBTeCF6r/I/Sym64VUmx4YjgKXiiYTAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBgQBwqamjmVi+nxt34YgvBTYaaGJRLU0ZLJxDuaTSAeDOiGT9CSFXOM77+TOyZX2YwYc+0prZxuZlUV4E7HgLlDPnsDkTqh4tKAqVWHJn9NbHdKmafFrCGKCPN/w4YxWvDUcMHtfpdubnd2maTEyUcboG5lHPNXkYCWdgrKxGCflnpV55+7EjWNUf3xPfefAmFK64N7SnojK7eedKbYNnTEb1cQVWXXuFpqqjVm0Y1BVHj8WNkiJ1m/o/ILhPAXmzzWw9npUC9GH9rrfoRRNBPyR6HkMvODCl9nVypFvsFQORSwDopqpHdJTODunWDFqtR8qvdV30Bgni6wtwze6oHSJb7ciuee7UumuMOrp1+fgwzT9SO/0RJaBjuqfOiJ9nfQ0sUyt4pwXjfYIPYZnanMu8dCLCxcLD9gKnBcn7kb0+VDZISk8pB0B2/lN7Pp1PKnaZqK7PzbWeH6EXCqXsA5+DTaHVUT+rXEqiWuyGoN9WpICFU27DQ2jlZfpRFZI5WV0=',
+];
+
+```
 
 ## Test The SP
  After the metadata is configured on the IdP, you should be able to test the configuration. The admin module of SimpleSAMLphp has a tab to test authentication sources. There you should a list of authentication sources, including the one you have created for the SP.
