@@ -116,4 +116,6 @@ If you want to enable some of the modules that are installed with SimpleSAMLphp,
 
 Prior to SSP V2 you could enable or disable modules by setting empty files with names ( enable , disable , default-enable ) in the module's root directory. You need to now use the module.enable config option.  
 
-Let’s move on to configure an authentication source for for SimpleSAMLphp.
+This is the same configuration for both SP and IdP.
+- Check how to configure SimpleSAMLphp as a Service Provicer
+- Check how to configure SimpleSAMLphp as a Identity Provider
