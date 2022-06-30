@@ -118,4 +118,4 @@ Prior to SSP V2 you could enable or disable modules by setting empty files with 
 
 This is the same configuration for both SP and IdP.
 - [Check how to configure SimpleSAMLphp as a Identity Provicer](Identity-Provider.md)
-- [Check how to configure SimpleSAMLphp as a Service Provider](https://github.com/buckbeak99/SimpleSAMLphp/blob/7afad291d4935e9734d0487227102fe17fa0a2ce/Service-Provider.md)
+- [Check how to configure SimpleSAMLphp as a Service Provider](Service-Provider.md)
